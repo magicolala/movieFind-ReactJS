@@ -19809,6 +19809,41 @@ var AppDispatcher = require('../dispatcher/AppDispatcher');
 var AppConstants = require('../constants/AppConstants');
 var EventEmitter = require('events').EventEmitter;
 var assign = require('object-assign');
-},{"../constants/AppConstants":166,"../dispatcher/AppDispatcher":167,"events":1,"object-assign":32}],170:[function(require,module,exports){
+var appApi = require('../utils/appAPI.js');
 
-},{}]},{},[168]);
+var CHANGE_EVENT = 'change';
+
+var _movies = [];
+var _selected = '';
+
+var AppStore = assign({}, EventEmitter.prototype, {
+    emitChange: function(){
+        this.emit(CHANGE_EVENT);
+    },
+    addChangeListener: function(callback) {
+        this.on('change', callback);
+    },
+    removeChangeListener: function(callback) {
+        this.removeListener('change', callback);
+    }
+});
+
+AppDispatcher.register(function(payload) {
+    var action = payload.action;
+    switch (action.actionType) {
+
+    }
+
+    return true;
+});
+
+module.exports = AppStore;
+},{"../constants/AppConstants":166,"../dispatcher/AppDispatcher":167,"../utils/appAPI.js":170,"events":1,"object-assign":32}],170:[function(require,module,exports){
+var AppActions = require('../actions/AppActions');
+
+module.exports = {
+    searchMovies: function(movie) {
+        
+    }
+}
+},{"../actions/AppActions":164}]},{},[168]);
