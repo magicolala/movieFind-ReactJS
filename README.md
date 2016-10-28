@@ -2,5 +2,5 @@
 Simple movie finder App
 
 ```
-$ npm install
+$ gulp
 ```
